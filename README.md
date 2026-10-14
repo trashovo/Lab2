@@ -1,4 +1,4 @@
-# Суханов Сергей Лаб-2(ИТ-5) Лабораторная №2 (Вариант 7)
+<img width="414" height="116" alt="image" src="https://github.com/user-attachments/assets/7e187aed-03ce-431e-a86f-484ddbeefabe" /># Суханов Сергей Лаб-2(ИТ-5) Лабораторная №2 (Вариант 7)
 
 # Задание 1
 
@@ -33,6 +33,12 @@
 Переопределяется метод `ToString()`: выполняется проверка каждого поля на `null` и непустую строку, после чего непустые поля объединяются через пробел, а лишний пробел в конце строки удаляется методом `Trim()`.
 
 ### Тестирование
+<img width="252" height="100" alt="image" src="https://github.com/user-attachments/assets/c52ae33c-015c-4543-944a-ced6a26db7eb" />
+<img width="438" height="126" alt="image" src="https://github.com/user-attachments/assets/43254f7c-a1b3-421d-81aa-ddbf3414a9b5" />
+<img width="431" height="114" alt="image" src="https://github.com/user-attachments/assets/b0df0a44-fdcc-41a3-8ab8-6c928b360764" />
+<img width="414" height="116" alt="image" src="https://github.com/user-attachments/assets/81e8c84b-862f-494f-b549-9dff82033a45" />
+<img width="368" height="111" alt="image" src="https://github.com/user-attachments/assets/3e7d4f80-8a7b-4600-a76a-39a66efadd25" />
+
 
 ## Задача 4
 
@@ -60,6 +66,12 @@
 Переопределяется метод `ToString()`: вычисляются часы делением секунд на 3600, минуты — делением остатка от часа на 60, а секунды — остатком от деления на 60, после чего формируется и возвращается строка вида `ЧЧ:ММ:СС`.
 
 ### Тестирование
+<img width="247" height="93" alt="image" src="https://github.com/user-attachments/assets/993cec60-68a5-4102-a87c-17445a4872ea" />
+<img width="355" height="72" alt="image" src="https://github.com/user-attachments/assets/43aedda1-a7f5-4065-b4c1-2723e847ee26" />
+<img width="347" height="72" alt="image" src="https://github.com/user-attachments/assets/f1807112-41d4-464f-bf71-f78eb84132ec" />
+<img width="345" height="72" alt="image" src="https://github.com/user-attachments/assets/69505f86-8165-4c54-b153-07b095c8a6a4" />
+<img width="449" height="119" alt="image" src="https://github.com/user-attachments/assets/3401bfb1-3fb2-4b1b-a0bc-2df12c1bcf7d" />
+
 
 # Задание 2
 
@@ -91,6 +103,7 @@
 В методе `Main` создаются три объекта сотрудников с ссылкой на один общий отдел `IT`, после чего один из сотрудников назначается руководителем отдела.
 
 ### Тестирование
+<img width="454" height="102" alt="image" src="https://github.com/user-attachments/assets/a5d50423-91c7-40cf-839c-4379a0906e62" />
 
 # Задание 3
 
@@ -111,6 +124,7 @@
 В класс `Employee` добавляется метод `GetDepartmentEmployees()`: метод проверяет отдел на `null`, обращается по ссылке к своему отделу и возвращает полный список всех прикрепленных к нему сотрудников.
 
 ### Тестирование
+<img width="475" height="138" alt="image" src="https://github.com/user-attachments/assets/39d4ea5b-6867-491d-8360-6220a0d6b38a" />
 
 # Задание 4
 
@@ -138,6 +152,12 @@
 Для выполнения условия единственного присваивания в инициализаторах часы и минуты переводятся в общее число секунд по формуле `hours * 3600 + minutes * 60 + seconds`, после чего с помощью конструкции `: this(...)` вычисленное значение передается в основной конструктор по секундам, где и происходит единственная операция присваивания свойству `TotalSeconds`.
 
 ### Тестирование
+<img width="358" height="72" alt="image" src="https://github.com/user-attachments/assets/22279911-dd4b-4467-8275-07b843157451" />
+<img width="260" height="183" alt="image" src="https://github.com/user-attachments/assets/07af60e9-17c4-4be1-bd73-816497229e87" />
+<img width="326" height="73" alt="image" src="https://github.com/user-attachments/assets/5fb994a9-214b-433a-bf53-97aa7a1bb734" />
+<img width="327" height="72" alt="image" src="https://github.com/user-attachments/assets/1fd34540-9421-4ca0-a637-a5f657f34fa3" />
+<img width="275" height="177" alt="image" src="https://github.com/user-attachments/assets/e57767e0-7143-41e7-bb06-0a2ed4aabe75" />
+<img width="444" height="137" alt="image" src="https://github.com/user-attachments/assets/3e6c9689-1afe-4363-a7cc-9e53a8496586" />
 
 # Задание 5
 
@@ -170,3 +190,7 @@
 В методе `Main` создаются объекты с заданным количеством секунд и демонстрируется вызов соответствующих методов.
 
 ### Тестирование
+<img width="293" height="98" alt="image" src="https://github.com/user-attachments/assets/1aa24307-0ec3-4ac3-b57b-3ba5d9d6073a" />
+<img width="284" height="133" alt="image" src="https://github.com/user-attachments/assets/933686a8-6a8d-4b4b-acd7-93e7eacd68d4" />
+<img width="445" height="119" alt="image" src="https://github.com/user-attachments/assets/c5d8e404-aa07-464b-a6f1-c51120b8fffc" />
+
