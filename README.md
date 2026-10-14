@@ -1,4 +1,4 @@
-<img width="414" height="116" alt="image" src="https://github.com/user-attachments/assets/7e187aed-03ce-431e-a86f-484ddbeefabe" /># Суханов Сергей Лаб-2(ИТ-5) Лабораторная №2 (Вариант 7)
+# Суханов Сергей Лаб-2(ИТ-5) Лабораторная №2 (Вариант 7)
 
 # Задание 1
 
