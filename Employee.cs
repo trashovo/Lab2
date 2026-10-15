@@ -26,12 +26,6 @@ namespace Lab2
             this.Department = department;
         }
         
-        public Employee(Employee other)
-        {
-            this.name = other.name;
-            this.Department = other.department;
-        }
-
         public string Name
         {
             get { return this.name; }
