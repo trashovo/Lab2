@@ -21,13 +21,8 @@ namespace Lab2
             : this(hours * 3600 + minutes * 60 + seconds)
         {
         }
-        
-        
-        public Time(Time other)
-        {
-            this.totalSeconds = other.totalSeconds;
-        }
 
+        
         public int TotalSeconds
         {
             get { return this.totalSeconds; }
