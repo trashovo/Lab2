@@ -35,13 +35,6 @@ namespace Lab2
             this.lastName = lastName != null ? lastName : "";
             this.patronymic = patronymic != null ? patronymic : "";
         }
-        
-        public Name(Name other)
-        {
-            this.firstName = other.firstName;
-            this.lastName = other.lastName;
-            this.patronymic = other.patronymic;
-        }
 
         public string FirstName
         {
