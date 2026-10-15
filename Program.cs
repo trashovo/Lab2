@@ -116,6 +116,69 @@ namespace Lab2
                         Console.WriteLine(petrov);
                         Console.WriteLine(kozlov);
                         Console.WriteLine(sidorov);
+                         
+                        Console.WriteLine("\nПользовательский ввод сотрудников");
+
+                        List<Department> savedDepartments = new List<Department>();
+
+                        while (true)
+                        {
+                            Console.Write("\nВведите имя сотрудника (0 для выхода): ");
+                            string name = Console.ReadLine();
+                            
+                            if (name == "0")
+                            {
+                                Console.WriteLine("Ввод сотрудников завершен.");
+                                break;
+                            }
+
+                            Console.Write("Введите название отдела (Enter — без отдела): ");
+                            string deptTitle = Console.ReadLine();
+
+                            Employee newEmp;
+                            
+                            if (deptTitle == "")
+                            {
+                                if (name == "")
+                                {
+                                    newEmp = new Employee();
+                                }
+                                else
+                                {
+                                    newEmp = new Employee(name);
+                                }
+                            }
+                            else
+                            {
+                                Department targetDept = null;
+                                for (int i = 0; i < savedDepartments.Count; i++)
+                                {
+                                    if (savedDepartments[i].Title == deptTitle)
+                                    {
+                                        targetDept = savedDepartments[i];
+                                        break;
+                                    }
+                                }
+                                
+                                if (targetDept == null)
+                                {
+                                    targetDept = new Department(deptTitle);
+                                    savedDepartments.Add(targetDept);
+                                }
+                                
+                                newEmp = new Employee(name, targetDept);
+                                if (targetDept.Manager == null)
+                                {
+                                    Console.Write($"Сделать {name} начальником отдела {targetDept.Title}? (1 - да, Enter - нет): ");
+                                    string isBoss = Console.ReadLine();
+                                    if (isBoss == "1")
+                                    {
+                                        targetDept.Manager = newEmp;
+                                    }
+                                }
+                            }
+                            Console.WriteLine("Результат: " + newEmp);
+                        }
                         break;
                     }
 
@@ -137,6 +200,82 @@ namespace Lab2
                         for (int i = 0; i < colleagues.Count; i++)
                         {
                             Console.WriteLine((i + 1) + ". " + colleagues[i].Name);
+                        }
+                        
+                        Console.WriteLine("\nПользовательский ввод сотрудников");
+                        Console.WriteLine("(Нажмите Enter при вводе имени для выхода)");
+
+                        Department userDept = null;
+
+                        while (true)
+                        {
+                            Console.Write("\nВведите имя сотрудника (0 для выхода): ");
+                            string name = Console.ReadLine();
+
+                            if (name == "0")
+                            {
+                                Console.WriteLine("Ввод сотрудников завершен");
+                                break;
+                            }
+
+                            Console.Write("Введите название отдела (Enter — без отдела): ");
+                            string deptTitle = Console.ReadLine();
+
+                            Employee newEmp;
+
+                            if (deptTitle == "")
+                            {
+                                if (name == "")
+                                {
+                                    newEmp = new Employee();
+                                }
+                                else
+                                {
+                                    newEmp = new Employee(name);
+                                }
+                            }
+                            else
+                            {
+                                if (userDept == null || userDept.Title != deptTitle)
+                                {
+                                    userDept = new Department(deptTitle);
+                                }
+
+                                newEmp = new Employee(name, userDept);
+
+                                if (userDept.Manager == null)
+                                {
+                                    Console.Write($"Сделать {name} начальником отдела {userDept.Title}? (1 - да, Enter - нет): ");
+                                    string isBoss = Console.ReadLine();
+                                    if (isBoss == "1")
+                                    {
+                                        userDept.Manager = newEmp;
+                                    }
+                                }
+                            }
+
+                            Console.WriteLine("Результат: " + newEmp);
+
+
+                            Console.Write($"Показать список коллег сотрудника {newEmp.Name}? (1 - да, Enter - нет): ");
+                            string showList = Console.ReadLine();
+                            if (showList == "1")
+                            {
+                                List<Employee> usercolleagues = newEmp.GetDepartmentEmployees();
+
+                                if (usercolleagues.Count == 0)
+                                {
+                                    Console.WriteLine("У сотрудника нет коллег (он не прикреплен к отделу).");
+                                }
+                                else
+                                {
+                                    Console.WriteLine($"Все сотрудники отдела через ссылку на {newEmp.Name}:");
+                                    for (int i = 0; i < usercolleagues.Count; i++)
+                                    {
+                                        Console.WriteLine((i + 1) + ". " + usercolleagues[i].Name);
+                                    }
+                                }
+                            }
                         }
                         break;
                     }
@@ -192,7 +331,6 @@ namespace Lab2
                         break;
                     }
                 }
-
                 Console.WriteLine("\nНажмите любую клавишу для возврата в меню");
                 Console.ReadKey();
                 Console.WriteLine();
