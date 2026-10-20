@@ -1,20 +1,20 @@
-﻿using System;
+using System;
 
 namespace Lab2
 {
     internal class Time
     {
-        private const int SecondsInDay = 86400;
-        private int totalSeconds;
+        private const int SecondsInDay = 86400; // Константа без "_"
+        private int _totalSeconds;
         
         public Time()
         {
-            this.totalSeconds = 0;
+            _totalSeconds = 0;
         }
         
         public Time(int totalSeconds)
         {
-            this.TotalSeconds = totalSeconds;
+            TotalSeconds = totalSeconds;
         }
         
         public Time(int hours, int minutes, int seconds) 
@@ -22,10 +22,9 @@ namespace Lab2
         {
         }
 
-        
         public int TotalSeconds
         {
-            get { return this.totalSeconds; }
+            get { return _totalSeconds; }
             set
             {
                 int mod = value % SecondsInDay;
@@ -33,10 +32,9 @@ namespace Lab2
                 {
                     mod += SecondsInDay;
                 }
-                this.totalSeconds = mod;
+                _totalSeconds = mod;
             }
         }
-
 
         public override string ToString()
         {
@@ -45,19 +43,20 @@ namespace Lab2
             int s = GetSeconds();
             return $"{h}:{m:D2}:{s:D2}";
         }
+
         public int GetHours()
         {
-            return this.totalSeconds / 3600;
+            return _totalSeconds / 3600;
         }
         
         public int GetMinutes()
         {
-            return (this.totalSeconds % 3600) / 60;
+            return (_totalSeconds % 3600) / 60;
         }
         
         public int GetSeconds()
         {
-            return this.totalSeconds % 60;
+            return _totalSeconds % 60;
         }
     }
 }
