@@ -1,74 +1,73 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace Lab2
 {
     internal class Employee
     {
-        private string name;
-        private Department department;
+        private string _name;
+        private Department _department;
 
         public Employee()
         {
-            this.name = "Иван";
-            this.department = null;
+            _name = "Иван";
+            _department = null;
         }
 
         public Employee(string name)
         {
-            this.name = name;
-            this.department = null;
+            _name = name != null ? name : "";
+            _department = null;
         }
 
         public Employee(string name, Department department)
         {
-            this.name = name;
-            this.Department = department;
+            _name = name != null ? name : "";
+            Department = department; // через свойство, чтобы сработал AddEmployee
         }
         
         public string Name
         {
-            get { return this.name; }
-            set { this.name = value; }
+            get { return _name; }
+            set { _name = value != null ? value : ""; }
         }
-
         
         public Department Department
         {
-            get { return this.department; }
+            get { return _department; }
             set
             {
-                this.department = value;
-                if (this.department != null)
+                _department = value;
+                if (_department != null)
                 {
-                    this.department.AddEmployee(this);
+                    _department.AddEmployee(this);
                 }
             }
         }
+
         public List<Employee> GetDepartmentEmployees()
         {
-            if (this.department != null)
+            if (_department != null)
             {
-                return this.department.Employees;
+                return _department.Employees;
             }
             return new List<Employee>();
         }
         
-        
         public override string ToString()
         {
-            if (this.department == null)
+            if (_department == null)
             {
-                return this.name + " без отдела";
+                return _name + " без отдела";
             }
 
-            if (this.department.Manager == this)
+            if (_department.Manager == this)
             {
-                return this.name + " начальник отдела " + this.department.Title;
+                return _name + " начальник отдела " + _department.Title;
             }
 
-            string bossName = this.department.Manager != null ? this.department.Manager.Name : "не назначен";
-            return this.name + " работает в отделе " + this.department.Title + ", начальник которого " + bossName;
+            string bossName = _department.Manager != null ? _department.Manager.Name : "не назначен";
+            return _name + " работает в отделе " + _department.Title + ", начальник которого " + bossName;
         }
     }
 }
