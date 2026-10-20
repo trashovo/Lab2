@@ -16,20 +16,20 @@ namespace Lab2
 
         public Employee(string name)
         {
-            _name = name != null ? name : "";
+            _name = name;
             _department = null;
         }
 
         public Employee(string name, Department department)
         {
-            _name = name != null ? name : "";
-            Department = department; // через свойство, чтобы сработал AddEmployee
+            _name = name;
+            Department = department;
         }
         
         public string Name
         {
             get { return _name; }
-            set { _name = value != null ? value : ""; }
+            set { _name = value; }
         }
         
         public Department Department
