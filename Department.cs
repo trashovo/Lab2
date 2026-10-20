@@ -17,14 +17,14 @@ namespace Lab2
 
         public Department(string title)
         {
-            _title = title != null ? title : "";
+            _title = title;
             _manager = null;
             _employees = new List<Employee>();
         }
 
         public Department(string title, Employee manager)
         {
-            _title = title != null ? title : "";
+            _title = title;
             _manager = manager;
             _employees = new List<Employee>();
         }
@@ -32,7 +32,7 @@ namespace Lab2
         public string Title
         {
             get { return _title; }
-            set { _title = value != null ? value : ""; }
+            set { _title = value; }
         }
 
         public Employee Manager
