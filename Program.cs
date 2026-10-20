@@ -205,16 +205,16 @@ namespace Lab2
                         Console.WriteLine("\nПользовательский ввод сотрудников");
                         Console.WriteLine("(Нажмите Enter при вводе имени для выхода)");
 
-                        Department userDept = null;
+                       List<Department> savedDepartments = new List<Department>();
 
                         while (true)
                         {
                             Console.Write("\nВведите имя сотрудника (0 для выхода): ");
                             string name = Console.ReadLine();
-
+                            
                             if (name == "0")
                             {
-                                Console.WriteLine("Ввод сотрудников завершен");
+                                Console.WriteLine("Ввод сотрудников завершен.");
                                 break;
                             }
 
@@ -222,7 +222,7 @@ namespace Lab2
                             string deptTitle = Console.ReadLine();
 
                             Employee newEmp;
-
+                            
                             if (deptTitle == "")
                             {
                                 if (name == "")
@@ -236,24 +236,33 @@ namespace Lab2
                             }
                             else
                             {
-                                if (userDept == null || userDept.Title != deptTitle)
+                                Department targetDept = null;
+                                for (int i = 0; i < savedDepartments.Count; i++)
                                 {
-                                    userDept = new Department(deptTitle);
+                                    if (savedDepartments[i].Title == deptTitle)
+                                    {
+                                        targetDept = savedDepartments[i];
+                                        break;
+                                    }
                                 }
-
-                                newEmp = new Employee(name, userDept);
-
-                                if (userDept.Manager == null)
+                                
+                                if (targetDept == null)
                                 {
-                                    Console.Write($"Сделать {name} начальником отдела {userDept.Title}? (1 - да, Enter - нет): ");
+                                    targetDept = new Department(deptTitle);
+                                    savedDepartments.Add(targetDept);
+                                }
+                                
+                                newEmp = new Employee(name, targetDept);
+                                if (targetDept.Manager == null)
+                                {
+                                    Console.Write($"Сделать {name} начальником отдела {targetDept.Title}? (1 - да, Enter - нет): ");
                                     string isBoss = Console.ReadLine();
                                     if (isBoss == "1")
                                     {
-                                        userDept.Manager = newEmp;
+                                        targetDept.Manager = newEmp;
                                     }
                                 }
                             }
-
                             Console.WriteLine("Результат: " + newEmp);
 
 
