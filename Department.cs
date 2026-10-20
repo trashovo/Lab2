@@ -38,7 +38,17 @@ namespace Lab2
         public Employee Manager
         {
             get { return _manager; }
-            set { _manager = value; }
+            set 
+            {
+                if (value != null && _employees.Contains(value))
+                {
+                _manager = value;
+                }
+                else
+                {
+                    Console.WriteLine("Ошибка, начальник должен быть сотрудником этого отдела");
+                }
+            }
         }
         
         public void AddEmployee(Employee employee)
