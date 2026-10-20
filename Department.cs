@@ -1,64 +1,62 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 
 namespace Lab2
 {
     internal class Department
     {
-        private string title;
-        private Employee manager;
-        private List<Employee> employees;
+        private string _title;
+        private Employee _manager;
+        private List<Employee> _employees;
 
         public Department()
         {
-            this.title = "Общий отдел";
-            this.manager = null;
-            this.employees = new List<Employee>();
+            _title = "Общий отдел";
+            _manager = null;
+            _employees = new List<Employee>();
         }
 
         public Department(string title)
         {
-            this.title = title;
-            this.manager = null;
-            this.employees = new List<Employee>();
+            _title = title != null ? title : "";
+            _manager = null;
+            _employees = new List<Employee>();
         }
 
         public Department(string title, Employee manager)
         {
-            this.title = title;
-            this.manager = manager;
-            this.employees = new List<Employee>();
+            _title = title != null ? title : "";
+            _manager = manager;
+            _employees = new List<Employee>();
         }
 
         public string Title
         {
-            get { return this.title; }
-            set { this.title = value; }
+            get { return _title; }
+            set { _title = value != null ? value : ""; }
         }
 
         public Employee Manager
         {
-            get { return this.manager; }
-            set { this.manager = value; }
+            get { return _manager; }
+            set { _manager = value; }
         }
-        
         
         public void AddEmployee(Employee employee)
         {
-            if (employee != null && !this.employees.Contains(employee))
+            if (employee != null && !_employees.Contains(employee))
             {
-                this.employees.Add(employee);
+                _employees.Add(employee);
             }
         }
         
         public List<Employee> Employees
         {
-            get { return this.employees; }
+            get { return _employees; }
         }
-        
         
         public override string ToString()
         {
-            return this.title;
+            return _title;
         }
     }
 }
