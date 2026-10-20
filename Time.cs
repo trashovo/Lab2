@@ -4,7 +4,7 @@ namespace Lab2
 {
     internal class Time
     {
-        private const int SecondsInDay = 86400; // Константа без "_"
+        private const int SecondsInDay = 86400;
         private int _totalSeconds;
         
         public Time()
