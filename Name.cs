@@ -1,85 +1,85 @@
-﻿using System;
+using System;
 
 namespace Lab2
 {
     internal class Name
     {
-        private string firstName;
-        private string lastName;
-        private string patronymic;
+        private string _firstName;
+        private string _lastName;
+        private string _patronymic;
         
         public Name()
         {
-            this.firstName = "Иван";
-            this.lastName = "";
-            this.patronymic = "";
+            this._firstName = "Иван";
+            this._lastName = "";
+            this._patronymic = "";
         }
         
         public Name(string firstName)
         {
-            this.firstName = firstName != null ? firstName : "";
-            this.lastName = "";
-            this.patronymic = "";
+            this._firstName = firstName != null ? firstName : "";
+            this._lastName = "";
+            this._patronymic = "";
         }
         
         public Name(string firstName, string lastName)
         {
-            this.firstName = firstName != null ? firstName : "";
-            this.lastName = lastName != null ? lastName : "";
-            this.patronymic = "";
+            this._firstName = firstName != null ? firstName : "";
+            this._lastName = lastName != null ? lastName : "";
+            this._patronymic = "";
         }
         
         public Name(string firstName, string lastName, string patronymic)
         {
-            this.firstName = firstName != null ? firstName : "";
-            this.lastName = lastName != null ? lastName : "";
-            this.patronymic = patronymic != null ? patronymic : "";
+            this._firstName = firstName != null ? firstName : "";
+            this._lastName = lastName != null ? lastName : "";
+            this._patronymic = patronymic != null ? patronymic : "";
         }
 
         public string FirstName
         {
-            get { return this.firstName; }
+            get { return _firstName; }
             set 
             {
                 if (value != null)
                 {
-                    this.firstName = value;
+                    _firstName = value;
                 }
                 else
                 {
-                    this.firstName = "";
+                    _firstName = "";
                 }
             }
         }
 
         public string LastName
         {
-            get { return this.lastName; }
+            get { return _lastName; }
             set 
             {
                 if (value != null)
                 {
-                    this.lastName = value;
+                    _lastName = value;
                 }
                 else
                 {
-                    this.lastName = "";
+                    _lastName = "";
                 }
             }
         }
 
         public string Patronymic
         {
-            get { return this.patronymic; }
+            get { return _patronymic; }
             set 
             {
                 if (value != null)
                 {
-                    this.patronymic = value;
+                    _patronymic = value;
                 }
                 else
                 {
-                    this.patronymic = "";
+                    _patronymic = "";
                 }
             }
         }
@@ -88,17 +88,17 @@ namespace Lab2
         {
             string s = "";
 
-            if (this.lastName != null && this.lastName != "")
+            if (_lastName != null && _lastName != "")
             {
-                s = s + this.lastName + " ";
+                s = s + _lastName + " ";
             }
-            if (this.firstName != null && this.firstName != "")
+            if (_firstName != null && _firstName != "")
             {
-                s = s + this.firstName + " ";
+                s = s + _firstName + " ";
             }
-            if (this.patronymic != null && this.patronymic != "")
+            if (_patronymic != null && _patronymic != "")
             {
-                s = s + this.patronymic + " ";
+                s = s + _patronymic + " ";
             }
 
             return s.Trim();
